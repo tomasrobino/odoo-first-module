@@ -32,3 +32,20 @@ class session(models.Model):
                 record.taken_seats_percent = len(record.attendees) / record.seats * 100
             else:
                 record.taken_seats_percent = 0
+
+    @api.onchange('seats', 'attendees')
+    def _onchange_seats_attendees(self):
+        if self.seats is not None and self.seats < 0:
+            return {
+                'warning': {
+                    'title': "Invalid number of seats",
+                    'message': "The number of seats cannot be negative.",
+                }
+            }
+        if self.seats and len(self.attendees) > self.seats:
+            return {
+                'warning': {
+                    'title': "Too many attendees",
+                    'message': "The number of attendees exceeds the available seats.",
+                }
+            }
