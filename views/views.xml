@@ -14,6 +14,7 @@
               <page string="Descriptions">
                 <group>
                   <field name="description" string="Description"/>
+                  <field name="sessions" dsadsstring="Sessions"/>
                 </group>
               </page>
             </notebook>
@@ -49,10 +50,47 @@
       <field name="view_mode">list,form</field>
     </record>
 
+    <!-- SESSION -->
+    <record model="ir.ui.view" id="session_form">
+      <field name="name">Session form</field>
+      <field name="model">open_academy.session</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group>
+              <field name="name"/>
+              <field name="start_date"/>
+              <field name="duration"/>
+              <field name="seats"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    
+    <record model="ir.ui.view" id="session_list">
+      <field name="name">Session list</field>
+      <field name="model">open_academy.session</field>
+      <field name="arch" type="xml">
+        <list>
+          <field name="name"/>
+          <field name="start_date"/>
+          <field name="duration"/>
+          <field name="seats"/>
+        </list>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="session_action">
+      <field name="name">Session window</field>
+      <field name="res_model">open_academy.session</field>
+      <field name="view_mode">list,form</field>
+    </record>
 
     <!-- Top menu item -->
     <menuitem name="Open Academy" id="open_academy_menu_root"/>
     <!-- actions -->
     <menuitem name="Course" id="open_academy_course_menu" parent="open_academy_menu_root" action="course_action"/>
+    <menuitem name="Session" id="open_academy_session_menu" parent="open_academy_menu_root" action="session_action"/>
   </data>
 </odoo>
