@@ -64,6 +64,7 @@
               <field name="duration"/>
               <field name="seats"/>
               <field name="attendees"/>
+              <field name="taken_seats_percent" widget="progressbar" options="{'color':'success'}"/>
             </group>
           </sheet>
         </form>
@@ -80,6 +81,7 @@
           <field name="duration"/>
           <field name="seats"/>
           <field name="attendees"/>
+          <field name="taken_seats_percent" widget="progressbar"/>
         </list>
       </field>
     </record>

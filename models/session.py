@@ -20,3 +20,15 @@ class session(models.Model):
     )
     course_id = fields.Many2one('open_academy.course')
     attendees = fields.Many2many('res.partner')
+    taken_seats_percent = fields.Float(
+        compute="_compute_taken_seats",
+        store=True
+    )
+
+    @api.depends('seats', 'attendees')
+    def _compute_taken_seats(self):
+        for record in self:
+            if record.seats:
+                record.taken_seats_percent = len(record.attendees) / record.seats * 100
+            else:
+                record.taken_seats_percent = 0
