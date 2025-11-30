@@ -8,6 +8,9 @@ class session(models.Model):
     start_date = fields.Date(default=fields.Date.today)
     duration = fields.Integer()
     seats = fields.Integer()
-    instructor = fields.Many2one('res.partner')
+    instructor = fields.Many2one(
+        'res.partner',
+        domain="[('instructor', '=', True)]",
+    )
     course_id = fields.Many2one('open_academy.course')
     attendees = fields.Many2many('res.partner')
