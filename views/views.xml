@@ -30,6 +30,7 @@
         <list>
           <field name="title"/>
           <field name="description"/>
+          <field name="sessions"/>
         </list>
       </field>
     </record>
@@ -62,6 +63,7 @@
               <field name="start_date"/>
               <field name="duration"/>
               <field name="seats"/>
+              <field name="attendees"/>
             </group>
           </sheet>
         </form>
@@ -77,6 +79,7 @@
           <field name="start_date"/>
           <field name="duration"/>
           <field name="seats"/>
+          <field name="attendees"/>
         </list>
       </field>
     </record>
