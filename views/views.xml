@@ -75,7 +75,7 @@
       <field name="name">Session list</field>
       <field name="model">open_academy.session</field>
       <field name="arch" type="xml">
-        <list>
+        <list decoration-info="duration &lt; 5" decoration-danger="duration &gt;= 15">
           <field name="name"/>
           <field name="start_date"/>
           <field name="duration"/>
