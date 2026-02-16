@@ -44,7 +44,11 @@
               name="my_courses"
               string="My Courses"
               domain="[('responsible_user', '=', uid)]"
-              help="Courses where I am responsible"
+            />
+            <filter
+              name="group_by_responsible_user"
+              string="Group by responsible user"
+              context="{'group_by': 'responsible_user'}"
             />
         </search>
       </field>
