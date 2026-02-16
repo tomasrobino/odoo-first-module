@@ -20,10 +20,17 @@ class session(models.Model):
     )
     course_id = fields.Many2one('open_academy.course')
     attendees = fields.Many2many('res.partner')
+    attendees_count = fields.Integer(compute="_compute_attendees_count", store=True)
+
     taken_seats_percent = fields.Float(
         compute="_compute_taken_seats",
         store=True
     )
+
+    @api.depends('attendees')
+    def _compute_attendees_count(self):
+        for record in self:
+            record.attendees_count = len(record.attendees)
 
     @api.depends('seats', 'attendees')
     def _compute_taken_seats(self):
