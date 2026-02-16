@@ -49,3 +49,9 @@ class session(models.Model):
                     'message': "The number of attendees exceeds the available seats.",
                 }
             }
+        
+    @api.constraint('instructor', 'attendees')
+    def _check_instructor_not_attendee(self):
+        for record in self:
+            if record.instructor and record.instructor in record.attendees:
+                raise ValidationError("The instructor cannot be an attendee.")
