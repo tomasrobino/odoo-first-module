@@ -50,7 +50,7 @@ class session(models.Model):
                 }
             }
         
-    @api.constraint('instructor', 'attendees')
+    @api.constrains('instructor', 'attendees')
     def _check_instructor_not_attendee(self):
         for record in self:
             if record.instructor and record.instructor in record.attendees:
