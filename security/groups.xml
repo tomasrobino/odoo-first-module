@@ -1,0 +1,5 @@
+<odoo>
+    <record id="group_open_academy_manager" model="res.groups">
+        <field name="name">Open Academy Manager</field>
+    </record>
+</odoo>
