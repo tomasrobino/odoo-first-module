@@ -62,11 +62,22 @@
     </record>
 
     <!-- SESSION -->
+     <record id="action_session_report" model="ir.actions.report">
+        <field name="name">Course Report</field>
+        <field name="model">open_academy.session</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">open_academy.session_report_template</field>
+    </record>    
+
+    
     <record model="ir.ui.view" id="session_form">
       <field name="name">Session form</field>
       <field name="model">open_academy.session</field>
       <field name="arch" type="xml">
         <form>
+          <header>
+            <button name="%(action_session_report)d" string="Descargar Informe" type="action" class="btn-primary"/>
+          </header>
           <sheet>
             <group>
               <field name="name"/>

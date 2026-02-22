@@ -1,0 +1,30 @@
+<odoo>
+    <template id="session_report_template">
+        <t t-call="web.basic_layout">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2>Session Report</h2>
+                        <p><strong>Name:</strong> <span t-esc="doc.name"/></p>
+                        <p><strong>Start Date:</strong> <span t-esc="doc.start_date"/></p>
+                        <p><strong>Duration:</strong> <span t-esc="doc.duration or 0"/> hours</p>
+                        <p><strong>Seats:</strong> <span t-esc="doc.seats or 0"/></p>
+                        <p><strong>Attendees Count:</strong> <span t-esc="doc.attendees_count or 0"/> (<span t-esc="doc.taken_seats_percent or 0"/>%)</p>
+
+                        <t t-if="doc.attendees">
+                            <h3>Attendees</h3>
+                            <ul>
+                                <t t-foreach="doc.attendees" t-as="attendee">
+                                    <li><span t-esc="attendee.name"/></li>
+                                </t>
+                            </ul>
+                        </t>
+                        <t t-if="not doc.attendees">
+                            <p>No attendees registered.</p>
+                        </t>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>
