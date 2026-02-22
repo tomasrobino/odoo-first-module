@@ -130,25 +130,12 @@
           <templates>
                 <t t-name="card">
                     <div class="o_kanban_card">
-                        <strong>
-                            <field name="name"/>
-                        </strong>
+                        <strong><field name="name"/></strong>
 
-                        <div>
-                            <field name="start_date"/>
-                        </div>
-
-                        <div>
-                            Duration: <field name="duration"/>
-                        </div>
-
-                        <div>
-                            Seats: <field name="seats"/>
-                        </div>
-
-                        <div>
-                            Attendees: <field name="attendees_count"/>
-                        </div>
+                        <div><field name="start_date"/></div>
+                        <div>Duration: <field name="duration"/></div>
+                        <div>Seats: <field name="seats"/></div>
+                        <div>Attendees: <field name="attendees_count"/></div>
                     </div>
                 </t>
             </templates>

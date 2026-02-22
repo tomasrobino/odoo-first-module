@@ -19,3 +19,4 @@ class course(models.Model):
         'check(title != description)',
         "The title of the course should not be the same as its description."
     )
+    
